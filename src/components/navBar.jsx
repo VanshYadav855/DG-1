@@ -1,18 +1,40 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { X } from 'lucide-react';
 
 const NavBar = ({ navigateTo }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleNavigation = (page) => {
     if (navigateTo) {
       navigateTo(page);
-    } else {
-      // If navigateTo prop is not provided, use window.location
-      if (page === 'home') {
-        window.location.href = '/';
-      }
     }
+    
+    // Use React Router navigation
+    switch(page) {
+      case 'home':
+        navigate('/');
+        break;
+      case 'about':
+        navigate('/about');
+        break;
+      case 'work':
+        navigate('/work');
+        break;
+      case 'services':
+        navigate('/services');
+        break;
+      case 'contact':
+        navigate('/contact');
+        break;
+      case 'campaign':
+        navigate('/campaign');
+        break;
+      default:
+        navigate('/');
+    }
+    
     setIsMenuOpen(false);
   };
 
@@ -43,13 +65,13 @@ const NavBar = ({ navigateTo }) => {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="mobile-menu">
-          <a href="#" onClick={() => handleNavigation('home')}>Home</a>
-          <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
-          <a href="#" onClick={() => handleNavigation('about')}>About</a>
-          <a href="#" onClick={() => handleNavigation('work')}>Our Work</a>
-          <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <Link to="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
+          <Link to="/about" onClick={() => setIsMenuOpen(false)}>About</Link>
+          <Link to="/work" onClick={() => setIsMenuOpen(false)}>Our Work</Link>
+          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
           <div className="mobile-cta">
-            <button className="primary-button">Get Started</button>
+            <button className="primary-button" onClick={() => handleNavigation('campaign')}>Get Started</button>
           </div>
         </div>
       )}

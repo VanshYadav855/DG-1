@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Heart, Instagram, Facebook, Twitter, Youtube, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import '../css/footbar.css';
 
@@ -26,22 +27,22 @@ const Footbar = () => {
         <div className="footer-section">
           <h3 className="footer-heading">Quick Links</h3>
           <ul className="footer-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Work</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/work">Our Work</Link></li>
+            <li><Link to="/campaign">Start Campaign</Link></li>
           </ul>
         </div>
         
         <div className="footer-section">
           <h3 className="footer-heading">Services</h3>
           <ul className="footer-links">
-            <li><a href="#">Instagram Marketing</a></li>
-            <li><a href="#">Facebook Marketing</a></li>
-            <li><a href="#">LinkedIn Marketing</a></li>
-            <li><a href="#">Twitter Marketing</a></li>
-            <li><a href="#">YouTube Marketing</a></li>
+            <li><Link to="/services">Instagram Marketing</Link></li>
+            <li><Link to="/services">Facebook Marketing</Link></li>
+            <li><Link to="/services">LinkedIn Marketing</Link></li>
+            <li><Link to="/services">Twitter Marketing</Link></li>
+            <li><Link to="/services">YouTube Marketing</Link></li>
           </ul>
         </div>
         
